@@ -1,0 +1,26 @@
+﻿<Window x:Class="KaficDomaciApp.Promeni"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KaficDomaciApp" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Promeni" Height="450" Width="800">
+    <Grid>
+        <TextBox Text="{Binding Path=Broj, UpdateSourceTrigger=PropertyChanged}" Margin="120,10,10,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Path=X, UpdateSourceTrigger=PropertyChanged}" Margin="120,40,10,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Path=Y, UpdateSourceTrigger=PropertyChanged}" Margin="120,80,10,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Path=W, UpdateSourceTrigger=PropertyChanged}" Margin="120,120,10,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Path=H, UpdateSourceTrigger=PropertyChanged}" Margin="120,160,10,0" VerticalAlignment="Top"/>
+
+        <xctk:ColorPicker SelectedColor="{Binding Path=Boja, UpdateSourceTrigger=PropertyChanged}" Margin="120,200,10,0" VerticalAlignment="Top"/>
+
+        <Button Content="Sacuvaj Promenu" Margin="10,240,10,0" VerticalAlignment="Top" Click="btnSave_Click"/>
+        <Label Content="Broj :" HorizontalAlignment="Left" Margin="62,6,0,0" VerticalAlignment="Top"/>
+        <Label Content="X osa :" HorizontalAlignment="Left" Margin="62,36,0,0" VerticalAlignment="Top"/>
+        <Label Content="Boja :" HorizontalAlignment="Left" Margin="62,199,0,0" VerticalAlignment="Top"/>
+        <Label Content="Y osa :" HorizontalAlignment="Left" Margin="62,76,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sirina :" HorizontalAlignment="Left" Margin="62,116,0,0" VerticalAlignment="Top"/>
+        <Label Content="Visina :" HorizontalAlignment="Left" Margin="62,156,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

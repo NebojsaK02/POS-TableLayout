@@ -1,0 +1,61 @@
+﻿<Window x:Class="KaficDomaciApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KaficDomaciApp"
+        mc:Ignorable="d"
+        Title="Kafic" Height="500" Width="875" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="439*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Dodaj Sto" x:Name="btnDodaj" Width="100" Height="30" HorizontalAlignment="Left" Margin="5,5,5,5" VerticalAlignment="Top" Click="btnDodaj_Click"/>
+            <Button Content="Izmeni Sto" x:Name="btnIzmeni" Width="100" Height="30" Margin="5,5,5,5" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnIzmeni_Click"/>
+            <Button Content="Izbrisi Sto" x:Name="btnIzbrisi" Width="100" Height="30" HorizontalAlignment="Left" Margin="5,5,5,5" VerticalAlignment="Top" Click="btnIzbrisi_Click"/>
+        </StackPanel>
+
+
+        <DataGrid AutoGenerateColumns="True" CanUserAddRows="False" x:Name="grid1" Background="Red" Margin="10,46,579,46" Grid.Row="1"/>
+        <ListBox x:Name="list1" BorderThickness="5" Margin="301,46,290,46" Background="AntiqueWhite" Grid.Row="1"/>
+        <ItemsControl x:Name="items1" Background="Green" Margin="590,46,27,46" ClipToBounds="True" Grid.Row="1">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="Canvas.Left" Value="{Binding X}" />
+                    <Setter Property="Canvas.Top" Value="{Binding Y}" />
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Rectangle  Height="{Binding H}" Width="{Binding W}" MouseDown="pritisni" MouseUp="pusti" MouseMove="pomeri">
+                            <Rectangle.Fill>
+                                <SolidColorBrush Color="{Binding Boja}" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <TextBlock Text="{Binding Broj}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black" />
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <Menu Margin="750,5,50,5" Grid.Row="0">
+            <MenuItem Header="Datoteke" Height="28" Width="73">
+                <MenuItem Header="Ucitaj Stolove" Click="MenuItem_UcitajStolove_Click"/>
+                <MenuItem Header="Snimi Stolove" Click="MenuItem_SnimiStolove_Click"/>
+            </MenuItem>
+        </Menu>
+        <Label Content="DataGrid:&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label Content="ItemsControl :" HorizontalAlignment="Left" Margin="590,15,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Label Content="ListBox :" HorizontalAlignment="Left" Margin="301,20,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+
+    </Grid>
+</Window>
